@@ -46,6 +46,7 @@ pub fn solve() {
         }
     }
 
+    println!("{:?}", deq);
     while !deq.is_empty() {
         let equation = deq.pop_front().unwrap();
         if let (Some(option1), Some(option2)) = (val_map.get(equation.0), val_map.get(equation.2)) {
@@ -61,7 +62,6 @@ pub fn solve() {
             deq.push_back(equation);
         }
     }
-    println!("{}", max_z);
     let mut final_bits = String::new();
     for i in 0..=max_z {
         let lookup = format!("z{:0>2}", i);
