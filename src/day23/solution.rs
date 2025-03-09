@@ -50,6 +50,26 @@ pub fn solve() {
             }
         }
     }
+    let highest_connection = connections_map
+        .iter()
+        .max_by(|a, b| a.1.len().cmp(&b.1.len()))
+        .unwrap();
 
-    println!("{:?} {}", result_vec, result_vec.len())
+    println!("{:?}", highest_connection);
+    println!("{:?}", highest_connection.1.len());
+    let mut password_vector = vec![highest_connection.0];
+    let pw_vec_to_push: Vec<&&str> = highest_connection.1.iter().collect();
+    password_vector.extend_from_slice(&pw_vec_to_push);
+    password_vector.sort();
+    let asd = password_vector
+        .iter()
+        .map(|&&s| s)
+        .collect::<Vec<&str>>()
+        .join(",");
+    // password_vector.push(&highest_connection.1.iter().collect::Vec<&&str>());
+    // let password_vector.phighest_connection.1.iter().collect();
+    println!("{:?}", asd)
+    // for (key, vect) in connections_vector {
+    //     println!("{}", vect.)
+    // }
 }
